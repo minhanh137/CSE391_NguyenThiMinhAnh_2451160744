@@ -1,5 +1,5 @@
 # PHẦN A
-##Câu A1:
+## Câu A1:
 1. Các bước xảy ra khi gõ https://shopee.vn vào trình duyệt và nhấn Enter
     - Bước 1: Request của mình xuất phát từ laptop -> đi qua router wifi nhà mình
     - Bước 2: Qua nhà mạng VNPT -> chạy xuyên cáp quang dưới đáy Thái Bình Dương
@@ -17,14 +17,14 @@
     - Loại tài nguyên (document, stylesheet, script,...)
 * Ảnh minh họa: ![Shopee's network tab](./screenshots/Tab_network.png)
 
-##Câu A2:
+## Câu A2:
 1. Trang web sử dụng quá nhiều thẻ `<div>` không mang ý nghĩa khiến công cụ tìm kiếm như Google khó hiểu cấu trúc trang (header, menu, nội dung chính, footer,..) nên bị đánh giá SEO 
 2. 4 lỗi semantic:
-        + Sử dụng thẻ `<div>` thay vì thẻ semantic
-        + Menu không dùng `<nav>`,...
-        + Không có heading (`<h1>`, `<h2>`,...)
-        + Không dùng `<section>`, `<main>`,... -> nội dung không được phân vùng rõ ràng
-        + Thiếu thuộc  alt cho hình ảnh
+    - Sử dụng thẻ `<div>` thay vì thẻ semantic
+    - Menu không dùng `<nav>`,...
+    - Không có heading (`<h1>`, `<h2>`,...)
+    - Không dùng `<section>`, `<main>`,... -> nội dung không được phân vùng rõ ràng
+    - Thiếu thuộc  alt cho hình ảnh
 
 **Code sửa lại**
 ```html
@@ -51,10 +51,11 @@
 <footer>
     <p>© 2026 ShopTLU</p>
 </footer>
+```
 
 * Nguồn tham chiếu: CCC_Frontend_2026/tuan_1_html5/04_visible_part_html.md
 
-##Câu A3:
+## Câu A3:
 _________________________________
 |            Hộp 1              | -> block chiếm cả dòng
 _________________________________
@@ -72,7 +73,7 @@ _________________________________
 
 * Nguồn tham chiếu: CCC_Frontend_2026/tuan_1_html5/04_visible_part_html.md - 📊 Block vs Inline — Hai loại element cơ bản
 
-##Câu A4:
+## Câu A4:
 * Sự khác nhau giữa các thẻ
     - `<thead>`: Phần đầu bảng, chứa tiêu đề các cột.
     - `<tbody>`: Phần thân bảng, chứa nội dung, dữ liệu chính của bảng.
