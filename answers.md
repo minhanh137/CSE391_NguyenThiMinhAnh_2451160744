@@ -67,6 +67,7 @@ Text C **Text D**                 -> nằm cạnh nhau, chung hàng
 _________________________________
 |            Hộp 3              | -> xuống dòng mới và chiếm cả dòng
 
+
 * Giải thích chi tiết:
     - Dòng 1, 3, 5: Hiển thị dưới dạng một khối riêng biệt, chiếm toàn bộ chiều ngang của trình duyệt. Điều này là do thẻ `<div>` là phần tử block, nó luôn bắt đầu trên một dòng mới và chiếm hết chiều rộng khả dụng.
     - Dòng 2, 4: Hiển thị trên cùng một dòng. Điều này là do thẻ `<span>`, `<strong>` đều là phần tử inline, không tạo dòng mới chỉ chiếm đúng phần nội dung nên chúng nằm cạnh nhau mà không xuống dòng.
@@ -85,3 +86,5 @@ _________________________________
     - Cấu trúc lồng nhau (table > tr > td > table...) rắc rối, phức tạp và khó bảo trì
 
 * Nguồn tham chiếu: CCC_Frontend_2026/tuan_1_html5/05_tables_hyperlinks.md - 📊 Table — Bảng dữ liệu
+
+# PHẦN B
