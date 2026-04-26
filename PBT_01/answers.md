@@ -133,6 +133,7 @@ _________________________________
 
 # PHẦN C
 ## Bài C1
+```html
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -236,4 +237,10 @@ _________________________________
     </footer>
 </body>
 </html>
-
+```
+## Bài C2
+Dùng `<div>` cho mọi thứ rồi thêm class có thể nhanh lúc đầu, nhưng về lâu dài là một cách làm thiếu bền vững. Thứ nhất, về SEO, các công cụ tìm kiếm như Google không chỉ đọc nội dung mà còn dựa vào cấu trúc HTML để hiểu trang. Khi sử dụng các thẻ semantic như `<header>, <main>, <article>`,...nội dung sẽ được phân loại rõ ràng hơn, giúp cải thiện khả năng index và xếp hạng. Nếu tất cả đều là `<div>`, bot sẽ phải đoán cấu trúc đẫn đến giảm hiệu quả SEO.
+Thứ hai, về accessibility(khả năng truy cập), các công cụ hỗ trợ như ccreen teader dựa vào semantic HTML để giúp người khiếm thị điều hướng trang. Ví dụ, họ có thể nhảy nhanh giữa các nav, ,main hoặc section. Nếu chỉ dùng `<div>`, trải nghiệm này gần như bị phá vỡ vì không còn ý nghĩa ngữ cảnh.
+Ví dụ thực tế: trong một trang tin tức, nếu dùng `<article>` cho mỗi bài viết, screen render có thể nhảy nhanh giữa các bài. Còn nếu dùng `<div>`, người dùng phải nghe toàn bộ nội dung mới hiểu được.
+Tuy nhiên, không phải lúc nào `<div>` cũng sai. Trong những trường hợp chỉ cần chia layout hoặc nhóm phần tử để CSS/JS xử lý, mà không có ý nghĩa nội dung cụ thể, thì dùng `<div>` là hợp lý. Ví dụ như một container để chia cột bằng Flexbox.
+Tóm lại, semantic HTML sẽ giúp code dễ hiểu hơn, tốt cho SEO và thân thiện với người 
