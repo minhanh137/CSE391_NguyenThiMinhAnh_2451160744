@@ -129,4 +129,111 @@ _________________________________
     - type="text"
     - type="submit"
 
-* CCC_Frontend_2026/tuan_1_html5/07_forms_interactive.md
+* Nguồn tham chiếu: CCC_Frontend_2026/tuan_1_html5/07_forms_interactive.md
+
+# PHẦN C
+## Bài C1
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Chi tiết sản phẩm</title> <!-- title để định danh trang -->
+</head>
+<body>
+    <header> <!-- phần đầu trang -->
+        <h1>Logo / Tên website</h1> <!-- tiêu đề chính của website -->
+        <nav> <!-- điều hướng chính -->
+            <ul> <!-- danh sách menu -->
+                <li><a href="#">Trang chủ</a></li>
+                <li><a href="#">Danh mục</a></li>
+                <li><a href="#">Liên hệ</a></li>
+            </ul>
+        </nav>
+    </header>
+    <nav aria-label="breadcrumb"> <!-- nav cho breadcrumb -->
+        <ol> <!-- ol vì có thứ tự phân cấp -->
+            <li><a href="#">Trang chủ</a></li>
+            <li><a href="#">Điện thoại</a></li>
+            <li>iPhone 16</li>
+        </ol>
+    </nav>
+    <main> <!-- nội dung chính -->
+        <section class="product-detail"> <!-- nhóm chi tiết sản phẩm -->
+            <section class="product-gallery">
+                <h2>Hình ảnh sản phẩm</h2> <!-- thêm heading để hợp lệ semantic -->
+                <figure> <!-- mỗi ảnh là 1 media -->
+                    <img src="#" alt="Ảnh sản phẩm 1">
+                </figure>
+                <figure>
+                    <img src="#" alt="Ảnh sản phẩm 2">
+                </figure>
+                <figure>
+                    <img src="#" alt="Ảnh sản phẩm 3">
+                </figure>
+                <figure>
+                    <img src="#" alt="Ảnh sản phẩm 4">
+                </figure>
+                <figure>
+                    <img src="#" alt="Ảnh sản phẩm 5">
+                </figure>
+            </section>
+            <article class="product-info"> <!-- nội dung sản phẩm độc lập -->
+                <h2>Tên sản phẩm</h2>
+                <p class="price">Giá sản phẩm</p>
+                <p class="rating">
+                    <span>★★★★★</span>
+                    <span>(100 đánh giá)</span>
+                </p>
+                <section class="description"> <!-- mô tả -->
+                    <h3>Mô tả</h3>
+                    <p>Thông tin mô tả sản phẩm...</p>
+                </section>
+            </article>
+        </section>
+        <section class="specifications"> <!-- bảng thông số -->
+            <h2>Thông số kỹ thuật</h2>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Thuộc tính</th>
+                        <th>Giá trị</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Màn hình</td>
+                        <td>6.1 inch</td>
+                    </tr>
+                    <tr>
+                        <td>CPU</td>
+                        <td>A18</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="reviews"> <!-- đánh giá -->
+            <h2>Đánh giá</h2>
+            <article class="review">
+                <h3>Tên người dùng</h3>
+                <p>Nội dung bình luận...</p>
+            </article>
+            <article class="review">
+                <h3>Tên người dùng</h3>
+                <p>Nội dung bình luận...</p>
+            </article>
+        </section>
+    </main>
+    <aside> <!-- sidebar -->
+        <h2>Sản phẩm tương tự</h2>
+        <ul>
+            <li><a href="#">Sản phẩm 1</a></li>
+            <li><a href="#">Sản phẩm 2</a></li>
+            <li><a href="#">Sản phẩm 3</a></li>
+        </ul>
+    </aside>
+    <footer> <!-- footer -->
+        <p>&copy; 2026 Website bán hàng</p>
+    </footer>
+</body>
+</html>
+
