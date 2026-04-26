@@ -102,3 +102,31 @@ _________________________________
 10. Lỗi dòng 40, 42: Dùng 2 thẻ `<main>` trong một trang -> `<aside>`
 11. Lỗi dòng 45: Thẻ `<p>` chưa đóng -> `<p>Copyright 2026</p>`
 12. Lỗi dòng 12, 13: Sai định dạn đường dẫn -> `<a href="home.html">Trang chủ</a>, <a href="products.html">Sản phẩm</a>`
+
+## Bài B4
+### 1. Phân tích thẻ Semantic 
+* 3 thẻ semantic dùng đúng
+    - Thẻ `<header>`: Nằm trong thẻ `<body>`. Thẻ này chứa toàn bộ thanh công cụ phía trên như logo, ô tìm kiếm và các danh 
+    - Thẻ `<footer>`: Nằm ở phía cuối trang. Thẻ này chứa các thông tin về bản quyền, liên hệ và các liên kết chính sách
+    - Thẻ `<section>`: Nằm bên trong thẻ `<footer>`. Thẻ này dùng để phân chia nhóm nội dung lớn trong phần chân trang
+* 2 thẻ không dùng đúng semantic
+    - Thẻ `<div>`: dùng quá nhiều cho các khối nội dung 
+    - Thẻ `<p id="gb-top-page">`: thẻ này chứa nút cuộn lên. Theo đúng semantic, đây là một hành động tương tác, nên dùng thẻ `<button>` hoặc thẻ `<a>`
+
+* Nguồn tham chiếu: CCC_Frontend_2026/tuan_1_html5/04_visible_part_html.md - 🏗️ Semantic HTML5 — "Thẻ có ý nghĩa"
+
+### 2. Thẻ `<table>`
+* Nội dung bảng: hiển thị thông số kỹ thuật chi tiết của Samsung Galaxy S26 Ultra (màn hình, vi xử lý, camera sau,...)
+* Thẻ `<table>` này không dùng `<thead>` hay `<tbody>` mà được viết theo phong cách inline
+
+* Nguồn tham chiếu: CCC_Frontend_2026/tuan_1_html5/05_tables_hyperlinks.md
+
+### 3. Phân tích form
+* Action của form: 
+    - action="/tim-kiem"
+    - Khi người dùng bấm vào nút tìm kiếm, dữ liệu sẽ được gửi về đường dẫn /tim-kiem trên hệ thống để xử lý và trả về kết 
+* Các input types được sử dụng
+    - type="text"
+    - type="submit"
+
+* CCC_Frontend_2026/tuan_1_html5/07_forms_interactive.md
