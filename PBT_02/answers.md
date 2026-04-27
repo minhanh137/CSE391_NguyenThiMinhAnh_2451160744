@@ -104,7 +104,7 @@
     ```
 2. Lỗi 2
     - Dòng 3 - Input "email" không có `<label for="...">` và `<input...id="..." name="...">`, vi phạm accessibility và best practices
-    - Sửa: `<input type="email" id="email" name="email" placeholder="Nhập email" required>`
+    - Sửa: `<label for="email">Email:</label><input type="email" id="email" name="email" placeholder="Nhập email" required>`
     ```html
     <label for="email">Email:</label><br>
     <input type="email" id="email" name="email" placeholder="Nhập email" required><br><br>
@@ -113,9 +113,41 @@
     - Dòng 4, 5 - Input "password" không có `<label for="...">` và `<input...id="..." name="...">`, vi phạm accessibility và best practices
     - Sửa: `<label for="password">Mật khẩu:</label><input type="password" id="password" name="password" placeholder="Nhập mật khẩu">`
            `<label for="confirm_password">Xác nhận mật khẩu:</label><input type="password" id="confirm_password" name="confirm_password" placeholder="Xác nhận mật khẩu">`
+    ```html
+    <label for="password">Mật khẩu:</label>
+    <input type="password" id="password" name="password" placeholder="Nhập mật khẩu"><br>
+    <label for="confirm_password">Xác nhận mật khẩu:</label>
+    <input type="password" id="confirm_password" name="confirm_password" placeholder="Xác nhận mật khẩu">
+    ```
 4. Lỗi 4
     - Dòng 6 - Input "phone" không có `<label for="...">`, `<input...id="..." name="...">` và nên dùng `<input type="tel"> để tối ưu bàn phím số trên điện thoại di động, vi phạm cả 3 lỗi
     - Sửa: `<label for="phone">Số điện thoại:</label><input type="tel" id="phone" name="phone" value="0901234567" required>`
+    ```html
+    <label for="phone">Số điện thoại:</label>
+    <input type="tel" id="phone" name="phone" value="0901234567" required>
+    ```
 5. Lỗi 5
-    - Dòng 7->10: Input "city" không có `<label for="...">`, `<select id="..." name="...">` và `<option value="...">`, vi phạm cả 3 lỗi
+    - Dòng 7->10 - Input "city" không có `<label for="...">`, `<select id="..." name="...">` và `<option value="...">`, vi phạm cả 3 lỗi
     - Sửa: `<label for="city">Thành phố</label><select id="city" name="city" required><option value="">Chọn thành phố</option><option value="hanoi">Hà Nội</option><option value="hcm">Hồ Chí Minh</option></select>`
+    ```html
+    <label for="city">Thành phố</label>
+    <select id="city" name="city" required>
+        <option value="">Chọn thành phố</option>
+        <option value="hanoi">Hà Nội</option>
+        <option value="hcm">Hồ Chí Minh</option>
+    </select>
+    ```html
+6. Lỗi 6
+    - Dòng 11->13 - Tương tác và tích chọn ô điều khoản thiếu thẻ `<input type="checkbox"...`, vi phạm cả 3 lỗi
+    - Sửa: `<input type="checkbox" id="terms" name="terms" required><label for="terms">Tôi đồng ý với điều khoản</label>`
+    ```html
+    <input type="checkbox" id="terms" name="terms" required>
+    <label for="terms">Tôi đồng ý với điều khoản</label>
+    ```
+7. Lỗi 7
+    - Dòng 14 - nút "submit" thiếu một aria-label, nên sử dụng thẻ `<button type="submit"...>`, vi phạm accessibility và best practices
+    - Sửa: `<button type="submit" aria-label="Gửi">Gửi</button>`
+8. Lỗi 8
+    - Toàn bộ form - thiếu thuộc tính required ở các trường bắt buộc -> cho phép gửi form rỗng, vi phạm validation
+    - Sửa: Thêm required vào các input: tên, email, password,...
+ 
