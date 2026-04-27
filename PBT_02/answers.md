@@ -32,3 +32,40 @@
 <input type="password" minlength="8" value="123">  <!-- User gõ "123" -->
 <!--Không submit được do độ dài ngắn hơn minlength yêu cầu  -- >
 ```
+## Câu A3
+1. Tầm quan trọng của `<label for="email">`
+    - Giúp Screen Reader (trình đọc màn hình) đọc chính xác tên của ô nhập liệu khi người khiếm thị chuyển con trỏ vào đó. Nếu không có label, họ sẽ không biết ô đó yêu cầu nhập gì
+    - Khi click label --> focus vào input
+2. Sử dụng `<fieldset> + <legend>`
+    - Dùng khi cần nhóm các thẻ input có liên quan logic với nhau giúp screen reader hiểu 
+    - **VD**: Nhóm "Phương thức thanh toán" gồm các radio button: COD, banking,..
+    ```html
+    <fieldset>
+        <legend>Phương thức thanh toán</legend>
+        <input type="radio" name="pay"> COD
+        <input type="radio" name="pay"> Banking
+    </fieldset>
+    ```
+3. Sử dụng aria-label
+    - Dùng aria-label khi giao diện không có `<label>` nhưng vẫn cần mô tả cho Screen Reader
+    - KHông nên dùng aria-label khi đã có `<label>` vì nó gây dư thừa và ghi đè thông tin, làm screen reader đọc 2 lần
+## Câu A4
+1. loading="lazy" trên `<img>`
+    - Cải thiện: Chỉ tải ảnh khi người dùng cuộn trang đến gần vị trí ảnh -> tăng tốc độ tải trang ban đầu, tiết kiệm băng thông
+    - Khi nào không dùng? Không dùng cho các ảnh ở phần đầu trang -> vì sẽ làm chậm thời gian hiển thị nội dung chính đầu tiên
+2. Vì sao nên cup cấp nhiều `<source>` trong thẻ `<video>`?
+    - Vì nó giúp trình duyệt tự chọn định dạng mà nó hỗ trợ tốt nhất -> Khả năng tương thích trình duyệt
+    - 3 format phổ biến: MP4, WebM, Ogg 
+3. Thuộc tính alt dùng để làm gì?
+    * Mô tả nội dung hình ảnh khi ảnh bị lỗi không hiển thị hoặc cho trình đọc màn hình
+    * Viết alt tốt:
+        - Iphone 16: alt="Điện thoại iphone 16 pro max màu Titan"
+        - Ảnh trang trí: alt="" -> để trống để screen reader bỏ qua
+        - Biểu đồ doanh thu: alt="Biểu đồ cột thể hiện doanh thu Q1/2026 đạt mức tăng trưởng 15% so với cùng thời kỳ năm trước"
+## Câu A5
+* Cách 1: Dùng `<img>` khi ảnh là một phần của nội dung văn bản hoặc mang tính chất trang trí, không cần giải thích độc lập
+    - VD1: Các icon nhỏ trong menu điều hướng
+    - VD2: Các banner quảng cáo
+* Cách 2: Dùng `<figure>` khi ảnh cần có chú thích đi kèm. Nếu tách khỏi bài viết, nội dung vẫn có ý nghĩa
+    - VD1: Ảnh sản phẩm trong trang chi tiết kèm tên và giá bán
+    - VD2: Ảnh sơ đồ kiến trúc hệ thống trong một bài blog kỹ 
