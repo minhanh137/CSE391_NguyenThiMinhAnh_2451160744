@@ -48,7 +48,7 @@
     ```
 3. Sử dụng aria-label
     - Dùng aria-label khi giao diện không có `<label>` nhưng vẫn cần mô tả cho Screen Reader
-    - KHông nên dùng aria-label khi đã có `<label>` vì nó gây dư thừa và ghi đè thông tin, làm screen reader đọc 2 lần
+    - Không nên dùng aria-label khi đã có `<label>` vì nó gây dư thừa và ghi đè thông tin, làm screen reader đọc 2 lần
 ## Câu A4
 1. loading="lazy" trên `<img>`
     - Cải thiện: Chỉ tải ảnh khi người dùng cuộn trang đến gần vị trí ảnh -> tăng tốc độ tải trang ban đầu, tiết kiệm băng thông
@@ -97,22 +97,21 @@
 ```
 1. Lỗi 1
     - Dòng 2 - Input "Tên" không có `<label for="...">`, vi phạm accessibility
-    - Sửa: `<label for="name">Tên:</label> <input type="text" id="name" name="name" required>`
+    - Sửa:
     ```html
     <label for="name">Tên:</label>
     <input type="text" id="name" name="name" required>
     ```
 2. Lỗi 2
     - Dòng 3 - Input "email" không có `<label for="...">` và `<input...id="..." name="...">`, vi phạm accessibility và best practices
-    - Sửa: `<label for="email">Email:</label><input type="email" id="email" name="email" placeholder="Nhập email" required>`
+    - Sửa:
     ```html
     <label for="email">Email:</label><br>
     <input type="email" id="email" name="email" placeholder="Nhập email" required><br><br>
     ```
 3. Lỗi 3
     - Dòng 4, 5 - Input "password" không có `<label for="...">` và `<input...id="..." name="...">`, vi phạm accessibility và best practices
-    - Sửa: `<label for="password">Mật khẩu:</label><input type="password" id="password" name="password" placeholder="Nhập mật khẩu">`
-           `<label for="confirm_password">Xác nhận mật khẩu:</label><input type="password" id="confirm_password" name="confirm_password" placeholder="Xác nhận mật khẩu">`
+    - Sửa:
     ```html
     <label for="password">Mật khẩu:</label>
     <input type="password" id="password" name="password" placeholder="Nhập mật khẩu"><br>
@@ -121,14 +120,14 @@
     ```
 4. Lỗi 4
     - Dòng 6 - Input "phone" không có `<label for="...">`, `<input...id="..." name="...">` và nên dùng `<input type="tel"> để tối ưu bàn phím số trên điện thoại di động, vi phạm cả 3 lỗi
-    - Sửa: `<label for="phone">Số điện thoại:</label><input type="tel" id="phone" name="phone" value="0901234567" required>`
+    - Sửa:
     ```html
     <label for="phone">Số điện thoại:</label>
     <input type="tel" id="phone" name="phone" value="0901234567" required>
     ```
 5. Lỗi 5
     - Dòng 7->10 - Input "city" không có `<label for="...">`, `<select id="..." name="...">` và `<option value="...">`, vi phạm cả 3 lỗi
-    - Sửa: `<label for="city">Thành phố</label><select id="city" name="city" required><option value="">Chọn thành phố</option><option value="hanoi">Hà Nội</option><option value="hcm">Hồ Chí Minh</option></select>`
+    - Sửa:
     ```html
     <label for="city">Thành phố</label>
     <select id="city" name="city" required>
@@ -139,15 +138,44 @@
     ```html
 6. Lỗi 6
     - Dòng 11->13 - Tương tác và tích chọn ô điều khoản thiếu thẻ `<input type="checkbox"...`, vi phạm cả 3 lỗi
-    - Sửa: `<input type="checkbox" id="terms" name="terms" required><label for="terms">Tôi đồng ý với điều khoản</label>`
+    - Sửa:
     ```html
     <input type="checkbox" id="terms" name="terms" required>
     <label for="terms">Tôi đồng ý với điều khoản</label>
     ```
 7. Lỗi 7
     - Dòng 14 - nút "submit" thiếu một aria-label, nên sử dụng thẻ `<button type="submit"...>`, vi phạm accessibility và best practices
-    - Sửa: `<button type="submit" aria-label="Gửi">Gửi</button>`
+    - Sửa: 
+    ```html
+    <button type="submit" aria-label="Gửi">Gửi</button>
+    ```
 8. Lỗi 8
     - Toàn bộ form - thiếu thuộc tính required ở các trường bắt buộc -> cho phép gửi form rỗng, vi phạm validation
     - Sửa: Thêm required vào các input: tên, email, password,...
- 
+## Câu C2
+1. Viết pattern cho CMND/CCCD và Số tài khoản 
+    - CMND/CCCD có đúng 12 số: `pattern="[0-9]{12}"`
+    - Số tài khoản có 10->15 số: `pattern="[0-9]{10,15}`
+2. HTML5 validation đủ an toàn cho ứng dụng ngân hàng chưa? Tại sao?
+* Không đủ an toàn
+* Lý do:
+    - Dễ dàng bị vô hiệu hóa: Người dùng mở DevTools F12 và xóa thuộc tính required/pattern trong mã HTML -> có thể gửi dữ liệu sai quy định
+    - HTML5 validation chủ yếu phục vụ trải nghiệm người dùng (UX) để báo lỗi nhanh, không có khả năng bảo vệ dữ liệu thực sự trước các cuộc tấn công có ý đồ
+3. Loại validation mà HTML5 không thể làm được
+* Kiểm tra dữ liệu từ server
+    - Vì HTML5 không thể truy cập vào cơ sở dữ liệu nên không thể kiểm tra xem số CMND/CCCD hoặc email này đã tồn tại trong hệ thống ngân hàng chưa. 
+* Xử lý logic phức tạp
+    - HTML5 không xử lý được logic kiểu "nếu...thì"
+    - VD: Nếu phương thức xác thực là "Mã OTP qua email" -> "Số điện thoại' không bắt buộc. Nhưng nếu chọn "SMS" -> "Số điện thoại" là bắt buộc
+* So sánh dữ liệu nhiều field
+    - HTML không thể kiểm tra mối quan hệ giữa 2 input
+    - VD: Mật khẩu và xác nhận mật khẩu phải giống nhau, ngày kết thúc phải sau ngày bắt đầu,..
+4. Hai rủi ro bảo mật nếu chỉ validate trên Frontend mà không validate Backend
+* Người dùng có thể vượt qua validation (Bypass Validation)
+    - Người dùng không cần đi qua giao diện web, mà có thể dùng công cụ như Postman/cURL hoặc tắt JS và F12 để sửa mã nguồn nhằm ném dữ liệu sai lệch trực tiếp vào bên trong mà không bị kiểm tra
+    - Hậu quả -> Kẻ xấu có thể gửi dữ liệu như: số tiền âm, mật khẩu chỉ có 1 ký tự, số tài khoản giả,.. -> Nếu Backend không kiểm tra lại -> hệ thống chấp nhận toàn bộ dữ liệu đó -> lỗi logic nghiệp vụ nghiêm trọng
+* Bị điều khiển hoặc đánh cắp dữ liệu (Injection Attack)
+    - Khi không kiểm tra dữ liệu ở Backend -> Server thực thi mọi thứ được gửi lên. Thay vì nhập số tài khoản, những kẻ xấu nhập vào các đoạn mã độc
+    - Hậu quả 1-> Tiêm mã độc vào giao diện (XSS) -> Đánh cắp cookies/Session ID, tự động chuyển hướng người dùng sang trang web giả mạo ngân hàng, hay thay đổi nội dung để lừa đảo
+    - Hậu quả 2 -> Tấn công trực tiếp vào CSDL (SQL Injection) -> đăng nhập vào tài khoản bất kỳ mà không cần mật khẩu, xuất ra toàn bộ danh sách khách hàng và số dư hoặc có thể sửa/xóa dữ liệu của ngân hàng
+
