@@ -76,3 +76,46 @@
     - password = Abc12345
     - confirm = Acd14567
 * HTML vẫn thấy cả 2 đều hợp lệ về pattern -> pass -> Nhưng không biết 2 giá trị có giống nhau 
+# PHẦN C
+## Câu C1
+```html
+<form>
+    Tên: <input type="text">
+    <input type="email" placeholder="Email của bạn">
+    <input type="password" placeholder="Mật khẩu">
+    <input type="password" placeholder="Nhập lại mật khẩu">
+    Phone: <input type="text" value="0901234567">
+    <select>
+        <option>Hà Nội</option>
+        <option>TP.HCM</option>
+    </select>
+    <label>
+        Tôi đồng ý điều khoản
+    </label>
+    <input type="submit" value="Gửi">
+</form>
+```
+1. Lỗi 1
+    - Dòng 2 - Input "Tên" không có `<label for="...">`, vi phạm accessibility
+    - Sửa: `<label for="name">Tên:</label> <input type="text" id="name" name="name" required>`
+    ```html
+    <label for="name">Tên:</label>
+    <input type="text" id="name" name="name" required>
+    ```
+2. Lỗi 2
+    - Dòng 3 - Input "email" không có `<label for="...">` và `<input...id="..." name="...">`, vi phạm accessibility và best practices
+    - Sửa: `<input type="email" id="email" name="email" placeholder="Nhập email" required>`
+    ```html
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" placeholder="Nhập email" required><br><br>
+    ```
+3. Lỗi 3
+    - Dòng 4, 5 - Input "password" không có `<label for="...">` và `<input...id="..." name="...">`, vi phạm accessibility và best practices
+    - Sửa: `<label for="password">Mật khẩu:</label><input type="password" id="password" name="password" placeholder="Nhập mật khẩu">`
+           `<label for="confirm_password">Xác nhận mật khẩu:</label><input type="password" id="confirm_password" name="confirm_password" placeholder="Xác nhận mật khẩu">`
+4. Lỗi 4
+    - Dòng 6 - Input "phone" không có `<label for="...">`, `<input...id="..." name="...">` và nên dùng `<input type="tel"> để tối ưu bàn phím số trên điện thoại di động, vi phạm cả 3 lỗi
+    - Sửa: `<label for="phone">Số điện thoại:</label><input type="tel" id="phone" name="phone" value="0901234567" required>`
+5. Lỗi 5
+    - Dòng 7->10: Input "city" không có `<label for="...">`, `<select id="..." name="...">` và `<option value="...">`, vi phạm cả 3 lỗi
+    - Sửa: `<label for="city">Thành phố</label><select id="city" name="city" required><option value="">Chọn thành phố</option><option value="hanoi">Hà Nội</option><option value="hcm">Hồ Chí Minh</option></select>`
