@@ -69,3 +69,10 @@
 * Cách 2: Dùng `<figure>` khi ảnh cần có chú thích đi kèm. Nếu tách khỏi bài viết, nội dung vẫn có ý nghĩa
     - VD1: Ảnh sản phẩm trong trang chi tiết kèm tên và giá bán
     - VD2: Ảnh sơ đồ kiến trúc hệ thống trong một bài blog kỹ 
+# PHẦN B
+## Bài B1
+1. HTML chỉ validate từng input riêng lẻ, không so sánh giữa 2 input bởi nó không có cơ chế so sánh giá trị giữa các thẻ input với nhau.
+* Ví dụ:
+    - password = Abc12345
+    - confirm = Acd14567
+* HTML vẫn thấy cả 2 đều hợp lệ về pattern -> pass -> Nhưng không biết 2 giá trị có giống nhau 
