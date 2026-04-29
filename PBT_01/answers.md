@@ -244,3 +244,5 @@ Dùng `<div>` cho mọi thứ rồi thêm class có thể nhanh lúc đầu, nh�
 **Ví dụ thực tế**: trong một trang tin tức, nếu dùng `<article>` cho mỗi bài viết, screen render có thể nhảy nhanh giữa các bài. Còn nếu dùng `<div>`, người dùng phải nghe toàn bộ nội dung mới hiểu được.
 **Tuy nhiên**, không phải lúc nào `<div>` cũng sai. Trong những trường hợp chỉ cần chia layout hoặc nhóm phần tử để CSS/JS xử lý, mà không có ý nghĩa nội dung cụ thể, thì dùng `<div>` là hợp lý. Ví dụ như một container để chia cột bằng Flexbox.
 Tóm lại, semantic HTML sẽ giúp code dễ hiểu hơn, tốt cho SEO và thân thiện với người 
+# PHẦN D
+* link video: https://drive.google.com/file/d/1E_cE-qH5O-KHwRo-EGntyEf_sPOojgsH/view?usp=sharing
