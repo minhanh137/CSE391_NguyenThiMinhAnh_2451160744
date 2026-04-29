@@ -179,3 +179,5 @@
     - Hậu quả 1-> Tiêm mã độc vào giao diện (XSS) -> Đánh cắp cookies/Session ID, tự động chuyển hướng người dùng sang trang web giả mạo ngân hàng, hay thay đổi nội dung để lừa đảo
     - Hậu quả 2 -> Tấn công trực tiếp vào CSDL (SQL Injection) -> đăng nhập vào tài khoản bất kỳ mà không cần mật khẩu, xuất ra toàn bộ danh sách khách hàng và số dư hoặc có thể sửa/xóa dữ liệu của ngân hàng
 
+# PHẦN D
+* link video: https://drive.google.com/file/d/1ZJAajQ_Hzg6WMAE5ShpJBTHJZ1RheF4L/view?usp=sharing
