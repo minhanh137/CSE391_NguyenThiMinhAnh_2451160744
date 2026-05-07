@@ -97,17 +97,19 @@
 8. .top-bar.dark h1 -> Chọn thẻ `<h1>` nằm trong phần tử có đồng thời class top-bar và dark -> "ShopTLU"
 ## Câu A3
 1. Trường hợp 1: content-box (mặc định)
+```css
 .box-1 {
     width: 400px;
     padding: 20px;
     border: 5px solid black;
     margin: 10px;
 }
-
-→ Chiều rộng hiển thị = 400 + 20*2 + 5*2 = 450px
-→ Không gian chiếm trên trang = 450 + 10*2 = 470px
+```
+- Chiều rộng hiển thị = 400 + 20*2 + 5*2 = 450px
+- Không gian chiếm trên trang = 450 + 10*2 = 470px
 
 2. Trường hợp 2: border-box
+```css
 .box-2 {
     box-sizing: border-box;
     width: 400px;
@@ -115,24 +117,26 @@
     border: 5px solid black;
     margin: 10px;
 }
-
-→ Chiều rộng hiển thị = 400px
-→ Kích thước content thực tế = 400 - 20*2 - 5*2 = 350px
-→ Không gian chiếm trên trang = 400 + 10*2 = 420px
+```
+- Chiều rộng hiển thị = 400px
+- Kích thước content thực tế = 400 - 20*2 - 5*2 = 350px
+- Không gian chiếm trên trang = 400 + 10*2 = 420px
 
 3. Trường hợp 3: Margin collapse
+```css
 .box-a { margin-bottom: 25px; }
 .box-b { margin-top: 40px; }
-
-→ Khoảng cách giữa box-a và box-b = 40px 
-→ **Khi 2 thẻ block nằm chồng dọc, margin của chúng không cộng dồn mà gộp làm một -> lấy giá trị lớn hơn**
+```
+- Khoảng cách giữa box-a và box-b = 40px 
+* **Khi 2 thẻ block nằm chồng dọc, margin của chúng không cộng dồn mà gộp làm một -> lấy giá trị lớn hơn**
 
 4. 
+```css
 .box-a { margin-bottom: -10px; }
 .box-b { margin-top: 40px; }
-
--> Khoảng cách = 40 + (-10) = 30px
--> **Khi có margin âm**, trình duyệt sẽ lấy Margin dương lớn nhất cộng với Margin âm nhỏ nhất
+```
+- Khoảng cách = 40 + (-10) = 30px
+* **Khi có margin âm, trình duyệt sẽ lấy Margin dương lớn nhất cộng với Margin âm nhỏ nhất**
 
 ## Câu A4
 1. Tính specificity score (a, b, c) cho mỗi rule
@@ -140,7 +144,7 @@
     - Rule B: .price { color: blue; } -> specificity score(0, 1, 0)
     - Rule C: #main-price { color: red; } -> specificity score(1, 0, 0)
     - Rule D: p.price { color: green; } -> specificity score(0, , 1)
--> **Thứ tự ưu tiên: ID(a) > Class(b) > Element(c)**
+* **Thứ tự ưu tiên: ID(a) > Class(b) > Element(c)**
 2. Element sẽ có màu gì? Giải thích
     - Element có màu đỏ
     - Rule C sử dụng bộ chọn ID(#main-price) có mức độ ưu tiên cao hơn class và tag
