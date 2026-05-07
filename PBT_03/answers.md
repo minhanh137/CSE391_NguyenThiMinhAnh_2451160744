@@ -95,3 +95,62 @@
 6. article > p -> Chọn các thẻ `<p>` là con trực tiếp của `<article>` -> "25.990.000đ, Mô tả sản phẩm..., 45.990.000đ, Mô tả sản phẩm..."
 7. a[href="/"] -> Chọn thẻ `<a>` có href="/" -> "Home"
 8. .top-bar.dark h1 -> Chọn thẻ `<h1>` nằm trong phần tử có đồng thời class top-bar và dark -> "ShopTLU"
+## Câu A3
+1. Trường hợp 1: content-box (mặc định)
+.box-1 {
+    width: 400px;
+    padding: 20px;
+    border: 5px solid black;
+    margin: 10px;
+}
+
+→ Chiều rộng hiển thị = 400 + 20*2 + 5*2 = 450px
+→ Không gian chiếm trên trang = 450 + 10*2 = 470px
+
+2. Trường hợp 2: border-box
+.box-2 {
+    box-sizing: border-box;
+    width: 400px;
+    padding: 20px;
+    border: 5px solid black;
+    margin: 10px;
+}
+
+→ Chiều rộng hiển thị = 400px
+→ Kích thước content thực tế = 400 - 20*2 - 5*2 = 350px
+→ Không gian chiếm trên trang = 400 + 10*2 = 420px
+
+3. Trường hợp 3: Margin collapse
+.box-a { margin-bottom: 25px; }
+.box-b { margin-top: 40px; }
+
+→ Khoảng cách giữa box-a và box-b = 40px 
+→ **Khi 2 thẻ block nằm chồng dọc, margin của chúng không cộng dồn mà gộp làm một -> lấy giá trị lớn hơn**
+
+4. 
+.box-a { margin-bottom: -10px; }
+.box-b { margin-top: 40px; }
+
+-> Khoảng cách = 40 + (-10) = 30px
+-> **Khi có margin âm**, trình duyệt sẽ lấy Margin dương lớn nhất cộng với Margin âm nhỏ nhất
+
+## Câu A4
+1. Tính specificity score (a, b, c) cho mỗi rule
+    - Rule A: p { color: black; } -> specificity score(0, 0, 1)
+    - Rule B: .price { color: blue; } -> specificity score(0, 1, 0)
+    - Rule C: #main-price { color: red; } -> specificity score(1, 0, 0)
+    - Rule D: p.price { color: green; } -> specificity score(0, , 1)
+-> **Thứ tự ưu tiên: ID(a) > Class(b) > Element(c)**
+2. Element sẽ có màu gì? Giải thích
+    - Element có màu đỏ
+    - Rule C sử dụng bộ chọn ID(#main-price) có mức độ ưu tiên cao hơn class và tag
+3. Nếu thêm `<p class="price" id="main-price" style="color: orange;">`, element có màu gì?
+    - Element sẽ có màu cam "orange"
+    - Inline Style (viết trực tiếp vào thuộc tính style của thẻ) có độ ưu tiên cao hơn mọi bộ chọn trong file CSS bên ngoài (External) hoặc thẻ style nội bộ (Internal).
+4. Nếu Rule A thêm !important, element có màu gì? Tại sao?
+    - Element có màu đen "black"
+    - "!important" có quyền lực cao nhất trong CSS. Nó sẽ ghi đè lên tất cả các tính toán Specificity thông thường, bao gồm cả ID và Inline Style, để ép trình duyệt áp dụng giá trị đó.
+
+**=> !important > inline style > ID > class > tag**
+
+* Tài liệu tham chiếu: https://github.com/hieutachi/CCC_Frontend_2026/blob/main/tuan_2_css_core/09_css_selectors.md - ⚖️ Specificity — "Ai thắng khi xung đột?
