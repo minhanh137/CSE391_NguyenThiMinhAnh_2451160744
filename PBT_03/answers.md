@@ -62,3 +62,36 @@
     - Trình duyệt ưu tiên code nằm càng gần phần tử càng tốt
     - Inline được viết trực tiếp vào thẻ nên có độ ưu tiên cao nhất, đè lên các style của Internal và External
     - Thứ tự ưu tiên: **Inline -> Internal -> External**
+## Câu A2
+```html
+<div id="app">
+    <header class="top-bar dark">
+        <h1>ShopTLU</h1>
+        <nav>
+            <a href="/" class="active">Home</a>
+            <a href="/products">Products</a>
+            <a href="/about">About</a>
+        </nav>
+    </header>
+    <main>
+        <article class="product">
+            <h2>iPhone 16</h2>
+            <p class="price">25.990.000đ</p>
+            <p>Mô tả sản phẩm...</p>
+        </article>
+        <article class="product featured">
+            <h2>MacBook Pro</h2>
+            <p class="price">45.990.000đ</p>
+            <p>Mô tả sản phẩm...</p>
+        </article>
+    </main>
+</div>
+```
+1. h1 -> Chọn "ShopTLU"
+2. .price -> Chọn "25.990.000đ" và "45.990.000đ"
+3. #app header -> Chọn toàn bộ nội dung khối header -> ShopTLU, Home, Products, About
+4. nav a:first-child -> Chọn thẻ `<a>` đầu tiên trong thẻ `<nav>` -> "Home"
+5. .product.featured h2  -> Chọn thẻ `<h2>` nằm trong phần tử có 2 class **product** và **featured** -> "MacBook Pro"
+6. article > p -> Chọn các thẻ `<p>` là con trực tiếp của `<article>` -> "25.990.000đ, Mô tả sản phẩm..., 45.990.000đ, Mô tả sản phẩm..."
+7. a[href="/"] -> Chọn thẻ `<a>` có href="/" -> "Home"
+8. .top-bar.dark h1 -> Chọn thẻ `<h1>` nằm trong phần tử có đồng thời class top-bar và dark -> "ShopTLU"
