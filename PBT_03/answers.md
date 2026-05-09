@@ -158,3 +158,23 @@
 **=> !important > inline style > ID > class > tag**
 
 * Tài liệu tham chiếu: https://github.com/hieutachi/CCC_Frontend_2026/blob/main/tuan_2_css_core/09_css_selectors.md - ⚖️ Specificity — "Ai thắng khi xung đột?
+# PHẦN B
+## Bài B2
+1. Chứng minh content-box vs border-box
+* Đo từ DevTools
+    - Hộp 1 (content-box): chiều rộng thực tế = 350px
+    - Hộp 2 (border_box): chiều rộng thực tế = 300px
+* Giải thích sự khác biệt
+    - content-box: width = 300px chỉ tính phần content => **Tổng chiều rộng thực tế: 300 + 20x2 + 5x2 = 350px**
+    - border_box: width = 300px đã tính cả phần content, padding và border. Vì vậy chiều rộng thực tế vẫn là 300px
+2. Layout 3 cột nếu không dùng border-box
+* Kết quả đo thực tế từ DevTools:
+    - sidebar = 255px
+    - content = 490px
+    - ads = 255px
+    - Tổng: 255 + 490 + 255 = 1000px
+* Kích thước thực tế của mỗi cột:
+    - sidebar và ads: 250 + 15x2 = 280px
+    - content: 500 + 20x2 = 540px
+    - Tổng: 280 + 540 + 280 = 1100px
+* Do sử dụng content-box, tổng chiều rộng thực tế của 3 cột bao gồm cả padding là 1100px, vượt quá 1000px của container. Thuộc tính flex đã tự động thu nhỏ các cột lại để vừa khít khung chứa, dẫn đến kích thước các cột bị sai lệch so với thiết kế ban đầu
