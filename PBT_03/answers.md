@@ -178,3 +178,21 @@
     - content: 500 + 20x2 = 540px
     - Tổng: 280 + 540 + 280 = 1100px
 * Do sử dụng content-box, tổng chiều rộng thực tế của 3 cột bao gồm cả padding là 1100px, vượt quá 1000px của container. Thuộc tính flex đã tự động thu nhỏ các cột lại để vừa khít khung chứa, dẫn đến kích thước các cột bị sai lệch so với thiết kế ban đầu
+## Bài B3
+1. 10 rules + specificity score
+    - p { color: gray;} -> Specificity: 0,0,1
+    - body p { color: green; } -> Specificity: 0,0,2
+    - html body p { color: blue; } -> Specificity: 0,0,3 
+    - .text { color: orange; } -> Specificity: 0,1,0 
+    - p.text { color: purple; } -> Specificity: 0,1,1 
+    - .text.highlight { color: brown; } -> Specificity: 0,2,0
+    - p.text.highlight { color: black; } -> Specificity: 0,2,1
+    - #demo { color: pink; } -> Specificity: 1,0,0 
+    - p#demo { color: teal; } -> Specificity: 1,0,1 
+    - p#demo.text.highlight { color: red; } -> Specificity: 1,2,1 
+2. Element cuối cùng hiển thị màu gì? Tại sao?
+    - Element cuối cùng màu đỏ 
+    - Do rule cuối cùng p#demo.text.highlight có specificity cao nhất vì có cả ID, class, tag. 
+3. Thay đổi thứ tự rules trong CSS file. Kết quả có đổi không? Giải thích.
+    - Khi thay đổi thứ tự rules trong CSS thì kết quả không đổi
+    - Rule nào có độ ưu tiên (specificity) cao hơn thì thắng. Nếu độ ưu tiên bằng nhau thì rule viết sau cùng sẽ thắng
