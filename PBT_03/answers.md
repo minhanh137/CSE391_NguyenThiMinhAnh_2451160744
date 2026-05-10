@@ -210,3 +210,33 @@
     - Không dùng border-box
     - Phải giảm width content sao cho tổng vẫn bằng 960px
     - sidebar = 342px, padding+border của content = 30x2 + 1x2 = 62px => content = 960 - 342 - 62 = 556px
+## Câu C2
+1. "Sản phẩm A"
+* Font-size
+    - body { font-size: 16px; } có specificity 0,0,0,1, đặt font-size: 16px
+    - .container { font-size: 14px; } có specificity 0,0,1,0 cao hơn body, nên phần tử con bên trong .container sẽ inherit giá trị 14px nếu không có rule riêng.
+    - .card .title { font-size: 20px; } có specificity 0,0,2,0, vì gồm 2 class (.card, .title). Rule này target trực tiếp vào phần tử h2, nên giá trị font-size: 20px được áp dụng.
+    - h2 có thể kế thừa 14px từ .container, nhưng vì .card .title áp dụng trực tiếp lên chính phần tử đó với specificity cao hơn rule kế thừa, nên: **Font-size cuối cùng = 20px**
+* color
+    - Rule #featured .title { color: red; } có specificity = 0,1,1,0
+    - Rule .highlight { color: green !important; } -> specificity = 0,0,1,0
+    - Mặc dù #featured .title có specificity cao hơn, nhưng .highlight dùng !important, nên nó thắng => **Color cuối cùng = green**
+2. "Mô tả sản phẩm"
+    - Rule body { color: #333; } -> có specificity 0,0,0,1, đặt màu mặc định là #333.
+    - Rule .card { color: blue; } -> có specificity 0,0,1,0, cao hơn body, nên phần tử bên trong .card sẽ kế thừa màu blue
+    - Rule .card p { color: inherit; } -> có thuộc tính inherit bắt buộc phần tử p phải lấy màu từ cha trực tiếp của nó là .card. => **Color cuối cùng = blue**
+3. "Sản phẩm B"
+* Font-size
+    - body { font-size: 16px; } có specificity 0,0,0,1, đặt font-size: 16px
+    - .container { font-size: 14px; } có specificity 0,0,1,0 cao hơn body, nên phần tử con bên trong .container sẽ inherit giá trị 14px nếu không có rule riêng.
+    - .card .title { font-size: 20px; } có specificity 0,0,2,0, vì gồm 2 class (.card, .title). Rule này target trực tiếp vào phần tử h2, nên giá trị font-size: 20px được áp dụng.
+    - h2 có thể kế thừa 14px từ .container, nhưng vì .card .title áp dụng trực tiếp lên chính phần tử đó với specificity cao hơn rule kế thừa, nên: **Font-size cuối cùng = 20px**
+* Color
+    - Rule body { color: #333; } -> có specificity 0,0,0,1.
+    - Rule .card { color: blue; } -> có specificity 0,0,1,0, nên phần tử bên trong màu blue => **Color cuối cùng = blue**
+4. "Mô tả sản phẩm B"
+    - Rule body { color: #333; } -> có specificity 0,0,0,1.
+    - Rule .card { color: blue; } -> có specificity 0,0,1,0, nên phần tử con màu blue.
+    - Rule .card p { color: inherit; } -> có specificity 0,0,1,1, nên p lấy màu từ .card, tức là blue.
+    - Rule .highlight { color: green !important; } -> có specificity 0,0,1,0.
+    - Dù .card p target trực tiếp vào p, nhưng .highlight có !important, nên nó thắng => **Color cuối cùng = green**
