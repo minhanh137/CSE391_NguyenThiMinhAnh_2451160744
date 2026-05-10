@@ -196,3 +196,17 @@
 3. Thay đổi thứ tự rules trong CSS file. Kết quả có đổi không? Giải thích.
     - Khi thay đổi thứ tự rules trong CSS thì kết quả không đổi
     - Rule nào có độ ưu tiên (specificity) cao hơn thì thắng. Nếu độ ưu tiên bằng nhau thì rule viết sau cùng sẽ thắng
+# PHẦN C
+## Câu C1
+1. Chiều rộng thực tế
+    - Sidebar = 300 + 20x2 + 1x2 = 342px
+    - content = 660 + 30x2 + 1x2 = 722px
+2. Layout bị vỡ vì
+    - Tổng = 342 + 722 = 1064px > 960px => content không đủ chỗ nên bị đẩy xuống dòng mới
+3. Cách sửa
+* Cách 1
+    - Dùng border-box: đã bao gồm content + padding + border
+* Cách 2
+    - Không dùng border-box
+    - Phải giảm width content sao cho tổng vẫn bằng 960px
+    - sidebar = 342px, padding+border của content = 30x2 + 1x2 = 62px => content = 960 - 342 - 62 = 556px
