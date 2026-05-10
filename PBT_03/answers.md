@@ -240,3 +240,5 @@
     - Rule .card p { color: inherit; } -> có specificity 0,0,1,1, nên p lấy màu từ .card, tức là blue.
     - Rule .highlight { color: green !important; } -> có specificity 0,0,1,0.
     - Dù .card p target trực tiếp vào p, nhưng .highlight có !important, nên nó thắng => **Color cuối cùng = green**
+# PHẦN D
+    - Link video: https://drive.google.com/file/d/1a8csAOLzCYujjFmWFFun84ld_cOi2-CL/view?usp=sharing
