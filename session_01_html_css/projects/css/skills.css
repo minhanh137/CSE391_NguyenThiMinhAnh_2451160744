@@ -48,9 +48,10 @@
             var(--color-primary),
             var(--color-secondary)
         );
-    transition:
-        width 1s ease-out;
-    animation: loadSkill 1.5s ease-out forwards;
+    transform: scaleX(0);
+    transform-origin: left;
+    animation:
+        loadSkill 2s ease-out forwards;
 }
 .skill-progress.html {
     width: 95%;
@@ -64,9 +65,10 @@
 .skill-progress.react {
     width: 80%;
 }
+@media (max-width: 767px) {
+    .skills-grid { grid-template-columns: 1fr; }
+    .skills h2 { font-size: 2rem; }
+}
 @keyframes loadSkill {
-
-    from {
-        width: 0;
-    }
+    to { transform: scaleX(1); }
 }
