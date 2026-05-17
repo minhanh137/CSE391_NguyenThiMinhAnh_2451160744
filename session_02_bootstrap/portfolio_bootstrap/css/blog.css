@@ -12,4 +12,38 @@
     border: none;
     box-shadow: 0 2px 15px rgba(0,0,0,0.08);
     border-radius: 12px;
+    transition: all 0.3s ease;
+}
+.btn-outline-primary {
+    transition: all 0.3s ease;
+}
+.btn-outline-primary:hover {
+    transform: translateY(-2px);
+}
+.input-group .btn {
+    transition: all 0.3s ease;
+}
+.input-group .btn:hover {
+    transform: scale(1.05);
+}
+.text-decoration-none {
+    transition: color 0.3s ease;
+}
+.text-decoration-none:hover {
+    color: #0d6efd !important;
+}
+.badge.bg-secondary {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.badge.bg-secondary:hover {
+    background-color: #238037 !important;
+    transform: scale(1.08);
+}
+.list-group-item {
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+.list-group-item:hover {
+    background-color: #f8f9fa;
 }
