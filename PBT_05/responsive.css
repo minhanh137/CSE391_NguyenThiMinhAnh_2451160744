@@ -1,0 +1,158 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    color: #333;
+}
+.header{
+    background: #5ec4e6;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo{
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+.hamburger{
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+.nav{
+    display: none;
+}
+.container{
+    padding: 20px;
+}
+.sidebar{
+    display: none;
+}
+
+.ads{
+    display: none;
+}
+.products{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+.card{
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+.card:hover{
+    transform: translateY(-5px);
+}
+.card img{
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+.card h3{
+    margin: 12px 0;
+    font-size: 1.1rem;
+}
+.card p{
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+.card button{
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: #5ec4e6;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: auto;
+}
+.card button:hover{
+    background: #0b8db8;
+}
+.footer{
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
+}
+@media (min-width: 768px){
+    body{
+        font-size: 17px;
+    }
+
+    .hamburger{
+        display: none;
+    }
+    .nav{
+        display: flex;
+        gap: 20px;
+    }
+    .nav a{
+        color: white;
+        text-decoration: none;
+        font-size: 1rem;
+    }
+    .nav a:hover{
+        text-decoration: underline;
+    }
+    .sidebar{
+        display: flex;
+        gap: 15px;
+        margin-bottom: 20px;
+        background: white;
+        padding: 15px;
+        border-radius: 10px;
+    }
+    .sidebar h3{
+        margin-right: 10px;
+    }
+    .sidebar select{
+        padding: 8px;
+    }
+    .products{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (min-width: 1024px){
+
+    body{
+        font-size: 18px;
+    }
+
+    .container{
+        display: grid;
+        grid-template-columns: 220px 1fr 180px;
+        gap: 20px;
+        align-items: start;
+    }
+    .sidebar{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 0;
+        height: fit-content;
+    }
+    .ads{
+        display: block;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .products{
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
