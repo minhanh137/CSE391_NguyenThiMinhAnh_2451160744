@@ -142,3 +142,37 @@
         background: blue;
     }
     ```
+# PHẦN C
+## Câu C1
+### Mobile
+1. Navigation thay đổi thế nào? (hamburger? dropdown?)
+    - Thanh menu bên trái bị ẩn
+    - Xuất hiện icon hamburger menu.
+    - Thanh tìm kiếm được thu gọn.
+    - Một số nút chuyển thành icon.
+2. Lưới content thay đổi mấy cột?
+    - Video hiển thị trên 1 cột
+3. Elements nào bị ẩn trên mobile?
+    - Sidebar 
+    - Nút chức năng phụ: tìm kiếm bằng giọng nói, thông báo,...
+    - Khung chat trực tiếp
+    - Video gợi ý khi xem video bị đẩy xuống dưới cùng thay vì nằm bên phải
+4. Font size có thay đổi không?
+    - Font nhỏ hơn desktop
+### Tablet
+1. Navigation thay đổi thế nào? (hamburger? dropdown?)
+    - Thanh tìm kiếm dài hơn mobile
+    - Menu điều hướng rõ hơn
+2. Lưới content thay đổi mấy cột?
+    - Hiển thị 2 cột video
+3. Font size có thay đổi không?
+    - Font lớn hơn mobile nhưng bé hơn desktop
+###
+1. Navigation thay đổi thế nào? (hamburger? dropdown?)
+    - Hiển thị sidebar đầy đủ, chiếm diện tích ở bên trái
+    - Menu điều hướng đầy đủ
+2. Lưới content thay đổi mấy cột?
+    - Hiển thị 3 cột video
+3. Font size có thay đổi không?
+    - Font lướn dễ đọc hơn
+    - Khoảng cách giữa các phần tử rộng hơn
