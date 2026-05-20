@@ -1,0 +1,48 @@
+@import "variables";
+@import "mixins";
+@import "component";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $font-primary;
+    background: $bg-main;
+    padding: $spacing-lg;
+}
+
+.header {
+    color: $primary-color;
+    text-align: left;
+    margin-bottom: $spacing-lg;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s ease forwards;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
