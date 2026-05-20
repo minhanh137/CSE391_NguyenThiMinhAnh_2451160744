@@ -47,3 +47,11 @@
     - `.container`: co giãn theo từng nấc -> độ rộng tối đa cố định cho từng loại màn hình -> <567px thì bị tràn ra 100%
     - `.container-fluid`: luôn tràn viền -> Luôn luôn chiếm $100\%$ chiều rộng của màn hình ở mọi kích thước, không phân biệt điện thoại hay máy tính lớn.
     - `container-md`: tràn viền ở màn hình nhỏ, cố định ở màn hình lớn -> Nó sẽ tràn màn hình 100\% ở các kích thước nhỏ < 768px. Nhưng bắt đầu từ màn hình >= 768px, nó sẽ hoạt động giống hệt như .container (bị giới hạn max-width).
+# PHẦN C
+## Câu C1
+1. Bạn muốn đổi màu $primary từ xanh mặc định sang #E63946. Giải thích quy trình (cần công cụ gì, modify file nào).
+    - Công cụ: Mã nguồn Bootstrap SASS và trình biên dịch SASS
+    - Tạo 1 file với biến của riêng mình, đặt tên ví dụ như style.scss -> trình biên dịch SASS quét và tạo ra file style.css -> gắn link file vừa tạo đc = trình biên dịch vào html.
+2. Tại sao KHÔNG nên override trực tiếp .btn-primary { background: red; } mà nên dùng SASS variables?
+    - Khi override trực tiếp chiếc nút đổi sang đỏ nhưng hiệu ứng phụ biến mất (:hover, border-color,...) và bỏ sót nhiều utility Classes khác
+    - Dùng SASS: đổi 1 chỗ sẽ đổi cả hệ thống, đồng bộ UI, dễ maintain.
