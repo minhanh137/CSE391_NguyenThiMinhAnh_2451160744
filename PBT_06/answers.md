@@ -55,3 +55,48 @@
 2. Tại sao KHÔNG nên override trực tiếp .btn-primary { background: red; } mà nên dùng SASS variables?
     - Khi override trực tiếp chiếc nút đổi sang đỏ nhưng hiệu ứng phụ biến mất (:hover, border-color,...) và bỏ sót nhiều utility Classes khác
     - Dùng SASS: đổi 1 chỗ sẽ đổi cả hệ thống, đồng bộ UI, dễ maintain.
+## Câu C2
+1. Tạo 1 navbar responsive + 1 product card
+**Navbar responsive**
+```css
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.menu {
+  display: flex;
+  gap: 15px;
+}
+
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+  }
+}
+```
+**Product card**
+```css
+.card {
+  border: 1px solid #ddd;
+  padding: 10px;
+  width: 200px;
+}
+
+.card img {
+  width: 100%;
+}
+```
+2. So sánh
+* Số dòng CSS
+    - Khoảng >= 20 dòng
+* Thời gian phát triển
+    - CSS thuần -> lâu
+    - Bootstrap -> Nhanh
+* Khả năng tùy biến
+    - CSS thuần -> vô hạn
+    - Bootstrap -> Bị giới hạn
+* Khi nào NÊN và KHÔNG NÊN dùng Bootstrap?
+    - NÊN khi dự án cần tiến độ nhanh, demo, admin dashboard, không cần design quá custom.
+    - KHÔNG NÊN dùng khi làm trang web thương hiệu, thiết kế riêng.
