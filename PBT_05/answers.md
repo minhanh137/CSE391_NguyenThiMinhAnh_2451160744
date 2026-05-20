@@ -51,3 +51,94 @@
 | 800px | 720px |
 | 1000px | 960px |
 | 1400px | 1140px |
+
+## Câu A4
+1. Variables ($primary-color)
+    - Cho phép lưu giá trị vào biến bằng ký hiện $ -> Dùng lại nhiều lần
+    - Ví dụ:
+    ```css
+    $primary-color: #805ad5;
+    .button {
+        background: $primary-color;
+        color: white;
+    }
+    ```
+2. Nesting (viết CSS lồng nhau)
+    - Cho phép viết selector bên trong selector khác -> CSS theo cấu trúc HTML -> Code gọn hơn, viết CSS nhanh hơn
+    - Ví dụ: 
+    ```css
+    .navbar {
+        background: #1a202c;
+        padding: 16px;
+        
+        ul {
+            list-style: none;
+            display: flex;
+            
+            li {
+                margin-right: 24px;
+                
+                a {
+                    color: white;
+                    text-decoration: none;
+                    
+                    &:hover {    // & = thẻ cha (a)
+                        color: $primary;
+                    }
+                }
+            }
+        }
+    }
+    ```
+    **Lưu ý:** Không lồng quá 3 cấp. Sâu hơn = selector quá dài, khó maintain
+
+3. Mixins (@mixin, @include)
+    - Dùng để tái sử dụng nhiều đoạn CSS
+    - Ví dụ:
+    ```css
+    @mixin flex-center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    @mixin responsive($breakpoint) {
+        @if $breakpoint == tablet {
+            @media (min-width: 768px) { @content; }
+        } @else if $breakpoint == desktop {
+            @media (min-width: 1024px) { @content; }
+        }
+    }
+
+    .hero { 
+        @include flex-center;
+        height: 100vh;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+        
+        @include responsive(tablet) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
+        @include responsive(desktop) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+    ```
+
+4. @extend / Inheritance
+    - Cho class kế thừa style từ class khác
+    - Ví dụ:
+    ```css
+    .button {
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .primary-btn {
+        @extend .button;
+        background: blue;
+    }
+    ```
