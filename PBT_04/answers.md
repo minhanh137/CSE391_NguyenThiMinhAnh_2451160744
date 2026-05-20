@@ -77,3 +77,53 @@
 5. Card sản phẩm (ảnh trên, text giữa, nút dưới — nút luôn dính đáy)
     - Dùng flexbox
     - Vì xếp theo chiều dọc
+## Câu C2
+1. Cards không đều chiều cao — nút "Mua" bị nhảy lên/xuống
+    - Các .card trong Flexbox có chiều cao bằng nhau. Tuy nhiên, do nội dung bên trong mỗi card khác nhau nên chiều cao khác nhau. Nút .btn nằm ngay sau content bị nhảy lên xuống
+    - Sửa:
+    ```css
+    .card-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .card {
+        width: 30%;
+        margin: 1.5%;
+        display: flex;
+        flex-direction: column;
+    }
+    .card img { width: 100%; }
+    .card h3 { font-size: 18px; }
+    .card .btn {
+        padding: 10px;
+        margin-top: auto;
+    }
+    ```
+2. Lỗi 2: Muốn items nằm giữa cả ngang lẫn dọc trong container 100vh, nhưng item vẫn dính góc trái trên
+    - Thiếu hai thuộc tính căn giữa nên flexbox sẽ xếp phần tử về góc trái trên theo mặc định
+    - Sửa
+    ```css
+    .hero {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .hero-content {
+        text-align: center;
+    }
+    ```
+3. Lỗi 3: Sidebar bị co lại khi content quá dài
+    - Trong flexbox các phần tử con có thuộc tính mặc định flex-shrink:1 nên khi vùng chứa layout không đủ khoảng trống, các phần tử con sẽ tự động co lại để tránh bị tràn.
+    - Sửa
+    ```css
+    .layout {
+        display: flex;
+    }
+    .sidebar {
+        width: 250px;
+        flex-shrink: 0;
+    }
+    .content {
+        flex: 1;
+    }
