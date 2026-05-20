@@ -34,10 +34,10 @@
     - Mobile-First được khuyên dùng vì điện thoại tải ít CSS hơn nên nhanh hơn.
 ## Câu A2: Breakpoints chuẩn
 
-    | Tên | Kích thước | Thiết bị | Lưới sản phẩm hiển thị|
-    |-----|------------|----------|-----------------------|
-    | xs | < 576px | Điện thoại dọc | 1 cột |
-    | sm | >= 576px | Điện thoại ngang | 2 cột |
-    | md | >= 768px | Tablet | 2-3 cột |
-    | lg | >= 992px | Desktop nhỏ | 3-4 cột |
-    | xl | >= 1200px | Desktop lớn | 4 cột |
+| Tên | Kích thước | Thiết bị | Lưới sản phẩm hiển thị|
+|-----|------------|----------|-----------------------|
+| xs | < 576px | Điện thoại dọc | 1 cột |
+| sm | >= 576px | Điện thoại ngang | 2 cột |
+| md | >= 768px | Tablet | 2-3 cột |
+| lg | >= 992px | Desktop nhỏ | 3-4 cột |
+| xl | >= 1200px | Desktop lớn | 4 cột |
