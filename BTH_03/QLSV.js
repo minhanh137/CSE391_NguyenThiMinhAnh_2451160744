@@ -73,6 +73,11 @@ studentList.addEventListener("click",(e)=>{
     ){
         editStudent(index);
     }
+    if(
+        e.target.classList.contains("btn-delete")
+    ){
+        deleteStudent(index);
+    }
 });
 
 document.getElementById("btnAdd").addEventListener("click", openFormAdd);
@@ -161,6 +166,18 @@ function editStudent(index){
     
     document.getElementById("formTitle").innerText = "Sửa Sinh Viên";
     document.getElementById("modal").style.display = "flex";
+}
+
+function deleteStudent(index){
+    const confirmDelete = confirm(
+        "Bạn chắc chắn muốn xóa?"
+    );
+    if(confirmDelete){
+        students.splice(index,1);
+        saveStudents();
+        renderStudents();
+        showMessage("Xóa thành công!");
+    }
 }
 
 renderStudents();
