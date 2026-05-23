@@ -1,0 +1,159 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial;
+}
+
+body{
+    background: #f2f4f7;
+}
+
+.container{
+    width: 95%;
+    margin: 20px auto;
+    background: #dfe5ee;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header h1{
+    color: rgb(75, 160, 235);
+    font-size: 36px;
+}
+
+.add-btn{
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    background: #2196f3;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.summary{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.summary-left,
+.summary-right{
+    display: flex;
+    gap: 10px;
+}
+
+.summary button{
+    padding: 8px 12px;
+    border: 1px solid #3498db;
+    background: white;
+    color: #3498db;
+    border-radius: 4px;
+}
+
+.summary .green{
+    border-color: green;
+    color: green;
+}
+
+.modal{
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.modal-content{
+    width: 800px;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.modal-header{
+    background: #3498db;
+    color: white;
+
+    padding: 20px;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-header span{
+    font-size: 30px;
+    cursor: pointer;
+}
+
+form{
+    padding: 20px;
+}
+
+.form-group{
+    margin-bottom: 20px;
+    flex: 1;
+}
+
+.form-group label{
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select{
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+textarea{
+    height: 120px;
+}
+
+.row{
+    display: flex;
+    gap: 20px;
+}
+
+.form-actions{
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.cancel-btn{
+    background: gray;
+    color: white;
+}
+
+.save-btn{
+    background: #3498db;
+    color: white;
+}
+
+.form-actions button{
+    border: none;
+    padding: 10px 18px;
+    border-radius: 5px;
+    cursor: pointer;
+}
