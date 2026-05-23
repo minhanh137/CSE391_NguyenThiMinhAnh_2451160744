@@ -19,17 +19,41 @@ function renderTasks() {
 
     tasks.forEach((task, index) => {
         list.innerHTML += `
-        <div class="card">
-            <h4 class="${task.completed ? 'done' : ''}">
-                ${task.title}
-            </h4>
-            <p>${task.desc}</p>
-            <p>📌 ${task.priority}</p>
+        <div class="card priority-${task.priority}">
+            <h3 class="${task.completed ? "done" : ""}">${task.title}</h3>
+            <p>${task.description}</p>
+            <p>
+                📌 ${
+                    task.priority === "low"
+                    ? "Ưu tiên thấp"
+                    : task.priority === "medium"
+                    ? "Ưu tiên trung bình"
+                    : "Ưu tiên cao"
+                }
+            </p>
             <p>📅 ${task.deadline}</p>
+            <div class="card-top">
+                <input
+                    type="checkbox"
+                    ${task.completed ? "checked" : ""}
+                    onchange="toggleStatus(${index})"
+                >
 
-            <button onclick="toggleStatus(${index})">✔</button>
-            <button onclick="editTask(${index})">Sửa</button>
-            <button onclick="deleteTask(${index})">Xóa</button>
+                <div class="card-actions">
+                    <button
+                        class="btn-edit"
+                        onclick="editTask(${index})"
+                    >
+                        Sửa
+                    </button>
+                    <button
+                        class="btn-delete"
+                        onclick="deleteTask(${index})"
+                    >
+                        Xóa
+                    </button>
+                </div>
+            </div>
         </div>
         `;
     });
@@ -42,5 +66,45 @@ function updateStats() {
     const done = tasks.filter(t => t.completed).length;
     document.getElementById("completedTasks").innerText = done;
 }
+
+document.getElementById("btnAdd").addEventListener("click", openFormAdd);
+
+function openFormAdd() {
+    editIndex = -1;
+    document.getElementById("taskForm").reset();
+    document.getElementById("modal").style.display = "flex";
+}
+
+function closeForm() {
+    document.getElementById("modal").style.display = "none";
+}
+document.getElementById("closeModalBtn")
+.addEventListener("click", closeForm);
+
+document.getElementById("cancelBtn")
+.addEventListener("click", closeForm);
+
+document.getElementById("taskForm").onsubmit = function(e) {
+    e.preventDefault();
+
+    const task = {
+        title: document.getElementById("title").value,
+        description: document.getElementById("description").value,
+        priority: document.getElementById("priority").value,
+        deadline: document.getElementById("deadline").value,
+        completed: false
+    };
+
+    if (editIndex === -1) {
+        tasks.push(task);
+    } else {
+        tasks[editIndex] = task;
+        editIndex = -1;
+    }
+
+    saveTasks();
+    renderTasks();
+    closeForm();
+};
 
 renderTasks();
