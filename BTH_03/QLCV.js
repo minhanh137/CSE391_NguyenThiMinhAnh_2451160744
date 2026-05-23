@@ -57,14 +57,17 @@ function renderTasks() {
         </div>
         `;
     });
-
     updateStats();
 }
 
 function updateStats() {
-    document.getElementById("totalTasks").innerText = tasks.length;
+    const total = tasks.length;
     const done = tasks.filter(t => t.completed).length;
+    const pending = total - done;
+
+    document.getElementById("totalTasks").innerText = total;
     document.getElementById("completedTasks").innerText = done;
+    document.getElementById("pendingTasks").innerText = pending;
 }
 
 document.getElementById("btnAdd").addEventListener("click", openFormAdd);
@@ -72,19 +75,19 @@ document.getElementById("btnAdd").addEventListener("click", openFormAdd);
 function openFormAdd() {
     editIndex = -1;
     document.getElementById("taskForm").reset();
+    document.getElementById("modalTitle").innerText = "Thêm công việc";
     document.getElementById("modal").style.display = "flex";
 }
 
 function closeForm() {
     document.getElementById("modal").style.display = "none";
 }
-document.getElementById("closeModalBtn")
-.addEventListener("click", closeForm);
 
-document.getElementById("cancelBtn")
-.addEventListener("click", closeForm);
+document.getElementById("closeModalBtn").addEventListener("click", closeForm);
 
-document.getElementById("taskForm").onsubmit = function(e) {
+document.getElementById("cancelBtn").addEventListener("click", closeForm);
+
+document.getElementById("taskForm").addEventListener("submit", function (e) {
     e.preventDefault();
 
     const task = {
@@ -105,7 +108,27 @@ document.getElementById("taskForm").onsubmit = function(e) {
     saveTasks();
     renderTasks();
     closeForm();
-};
+});
+
+function editTask(index) {
+    const t = tasks[index];
+
+    document.getElementById("title").value = t.title;
+    document.getElementById("description").value = t.description;
+    document.getElementById("priority").value = t.priority;
+    document.getElementById("deadline").value = t.deadline;
+
+    editIndex = index;
+
+    document.getElementById("modalTitle").innerText = "Cập nhật công việc";
+    document.getElementById("modal").style.display = "flex";
+}
+
+function toggleStatus(index) {
+    tasks[index].completed = !tasks[index].completed;
+    saveTasks();
+    renderTasks();
+}
 
 function deleteTask(index) {
     if (confirm("Bạn có chắc muốn xóa?")) {
