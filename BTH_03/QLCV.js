@@ -107,4 +107,12 @@ document.getElementById("taskForm").onsubmit = function(e) {
     closeForm();
 };
 
+function deleteTask(index) {
+    if (confirm("Bạn có chắc muốn xóa?")) {
+        tasks.splice(index, 1);
+        saveTasks();
+        renderTasks();
+    }
+}
+
 renderTasks();
