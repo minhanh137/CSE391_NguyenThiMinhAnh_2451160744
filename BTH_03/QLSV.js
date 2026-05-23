@@ -47,8 +47,7 @@ function updateSummary(){
         return sum + Number(student.dtb);
     },0);
     const avg = total / students.length;
-    document.getElementById("avgGPA")
-    .innerText = avg.toFixed(2);
+    document.getElementById("avgGPA").innerText = avg.toFixed(2);
 }
 
 function resetForm(){
@@ -69,6 +68,11 @@ var studentList = document.getElementById("studentList");
 
 studentList.addEventListener("click",(e)=>{
     const index = e.target.dataset.index;
+    if(
+        e.target.classList.contains("btn-edit")
+    ){
+        editStudent(index);
+    }
 });
 
 document.getElementById("btnAdd").addEventListener("click", openFormAdd);
@@ -126,5 +130,37 @@ document.getElementById('form-js').addEventListener('submit', function(event) {
     renderStudents();
     closeForm();
 });
+
+function editStudent(index){
+    editIndex = index;
+    const student = students[index];
+
+    document.getElementById("msv2").value =
+    student.msv;
+
+    document.getElementById("name2").value =
+    student.name;
+
+    document.getElementById("dbt2").value =
+    student.dob;
+
+    document.getElementById("cl2").value =
+    student.cl;
+
+    document.getElementById("dtb2").value =
+    student.dtb;
+
+    document.getElementById("email2").value =
+    student.email;
+
+    document.getElementById("password2").value =
+    student.password;
+
+    document.getElementById("pw2").value =
+    student.password;
+    
+    document.getElementById("formTitle").innerText = "Sửa Sinh Viên";
+    document.getElementById("modal").style.display = "flex";
+}
 
 renderStudents();
