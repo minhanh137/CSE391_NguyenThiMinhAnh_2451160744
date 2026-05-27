@@ -104,3 +104,83 @@ var html = `
     </div>
     `;
 ```
+# PHẦN C
+## Câu C1
+- **Code bị lỗi**
+```js
+function tinhGiaGiamGia(giaBan, phanTramGiam) {
+    if (phanTramGiam < 0 || phanTramGiam > 100) {
+        return "Phần trăm giảm không hợp lệ"
+    }
+    
+    var giamGia = giaBan * phanTramGiam / 100
+    let giaSauGiam = giaBan - giamGia
+    
+    if (giaSauGiam = 0) {
+        console.log("Sản phẩm miễn phí!")
+    }
+    
+    return giaSauGiam
+}
+// Test
+const gia = tinhGiaGiamGia("100000", 20)
+console.log("Giá sau giảm: " + gia + "đ")
+
+const gia2 = tinhGiaGiamGia(50000, 110)
+console.log("Giá: " + gia2)
+
+for (var i = 0; i < 5; i++) {
+    setTimeout(function() {
+        console.log("Item " + i)
+    }, 1000)
+}
+```
+- Lỗi 1: Dòng `const gia = tinhGiaGiamGia("100000", 20)` -> lỗi kiểu dữ liệu khi truyền tham số là chuỗi -> Chuyển đổi tham số ngay đầu hoặc gọi hàm đúng kiểu
+- Lỗi 2: Dòng `if (giaSauGiam = 0)` -> dùng toán tử gán thay vì so sánh -> Dùng `===` để so sánh giá trị và kiểu
+- Lỗi 3: Xử lý không nhất quán khi `phanTramGiam` không hợp lệ -> trả về chuỗi trong khi kỳ vọng `console.log("Giá: " + gia2)` là số -> Đưa ra lỗi
+- Lỗi 4: Dòng `for (var i = 0; i < 5; i++)` -> biến i được khai báo với `var` có phạm vi hàm không bị giới hạn trong khối lệnh `for` nên tất cả `setTimeout` dùng chung một biến i, khi chạy xong vòng lặp thì `i = 5` nên in ra toàn 5 -> dùng let i để mỗi vòng lặp có biến riêng.
+- **Code sau khi sửa**
+```js
+function tinhGiaGiamGia(giaBan, phanTramGiam) {
+    // Sửa lỗi 1: ép kiểu và kiểm tra
+    giaBan = Number(giaBan);
+    if (isNaN(giaBan)) throw new Error("Giá bán không hợp lệ");
+
+    // Sửa lỗi 3: Đưa ra lỗi thay vì trả về chuỗi
+    if (phanTramGiam < 0 || phanTramGiam > 100) {
+        throw new Error("Phần trăm giảm không hợp lệ");
+    }
+
+    const giamGia = giaBan * phanTramGiam / 100;
+    const giaSauGiam = giaBan - giamGia;
+
+    // Sửa lỗi 2
+    if (giaSauGiam === 0) {
+        console.log("Sản phẩm miễn phí!");
+    }
+    
+    return giaSauGiam;
+}
+
+// Test
+try {
+    const gia = tinhGiaGiamGia("100000", 20);  
+    console.log("Giá sau giảm: " + gia + "đ");
+} catch (e) {
+    console.log(e.message);
+}
+
+try {
+    const gia2 = tinhGiaGiamGia(50000, 110);
+    console.log("Giá: " + gia2);
+} catch (e) {
+    console.log(e.message);
+}
+
+// Sửa lỗi 4: dùng let
+for (let i = 0; i < 5; i++) {
+    setTimeout(function() {
+        console.log("Item " + i);
+    }, 1000);
+}
+```
