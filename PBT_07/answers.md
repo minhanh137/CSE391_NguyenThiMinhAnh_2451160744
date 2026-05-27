@@ -64,3 +64,18 @@ console.log("" == false);            // true
 * Quy tắc: Từ giờ trở đi, bạn nên dùng == hay ===? Tại sao?
     - Luôn dùng `===` -> tránh ép kiểu ngầm
     - Vì `==` sẽ tự ép kiểu để so sánh, còn `===` so sánh cả giá trị + kiểu dữ liệu
+## Câu A4
+* 6 giá trị Falsy (coi như false):
+```js 
+false, 0, "", null, undefined, NaN
+```
+```js
+if ("0") console.log("A");           // "A"
+if ("") console.log("B");            // Không in B
+if ([]) console.log("C");            // "C"
+if ({}) console.log("D");            // "D" 
+if (null) console.log("E");          // Không in E
+if (0) console.log("F");             // Không in F
+if (-1) console.log("G");            // "G"
+if (" ") console.log("H");           // "H"
+```
