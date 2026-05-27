@@ -49,3 +49,18 @@ console.log({} + []);                // 0
 * Sau khi trả lời, chạy code kiểm tra. Giải thích tại sao "5" + 3 và "5" - 3 cho kết quả khác nhau.
     - `"5" + 3`: Phép cộng với chuỗi sẽ biến thành phép nối chuỗi -> "53"
     - `"5" - 3`: Phép trừ không làm việc với chuỗi -> js tự ép "5" thành số 5.
+## Câu A3
+```js
+console.log(5 == "5");                // true
+console.log(5 === "5");               // false
+console.log(null == undefined);       // true
+console.log(null === undefined);      // false
+console.log(NaN == NaN);             // false
+console.log(0 == false);             // true
+console.log(0 === false);            // false
+console.log("" == false);            // true
+```
+
+* Quy tắc: Từ giờ trở đi, bạn nên dùng == hay ===? Tại sao?
+    - Luôn dùng `===` -> tránh ép kiểu ngầm
+    - Vì `==` sẽ tự ép kiểu để so sánh, còn `===` so sánh cả giá trị + kiểu dữ liệu
