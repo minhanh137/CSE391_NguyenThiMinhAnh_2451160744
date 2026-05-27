@@ -79,3 +79,28 @@ if (0) console.log("F");             // Không in F
 if (-1) console.log("G");            // "G"
 if (" ") console.log("H");           // "H"
 ```
+## Câu A5
+* Cách 1:
+    - `var greeting = "Xin chào " + name + "! Bạn " + age + " tuổi.";` => `var greeting = `Xin chào ${name}! Bạn ${age} tuổi.`;`
+
+* Cách 2:
+    - `var url = "https://api.example.com/users/" + userId + "/orders?page=" + page;` => `var url = `https://api.example.com/users/${userId}/orders?page=${page}`;`
+
+* Cách 3:
+```js
+var html = "<div class=\"card\">" +
+    "<h2>" + title + "</h2>" +
+    "<p>" + description + "</p>" +
+    "<span>Giá: " + price + "đ</span>" +
+    "</div>";
+```
+- Viết lại:
+```js
+var html = `
+    <div class="card">
+        <h2>${title}</h2>
+        <p>${description}</p>
+        <span>Giá: ${price}đ</span>
+    </div>
+    `;
+```
