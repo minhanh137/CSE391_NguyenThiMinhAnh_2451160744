@@ -72,3 +72,45 @@ for (let j = 0; j < 3; j++) {
 // let: 2
 ```
 - `var` dùng chung một biến cho toàn vòng lặp -> `let` mỗi vòng lặp dùng biến riêng
+## Câu A3
+- Cho mảng: const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+1. Lấy các số chẵn
+const soChan = nums.filter(n => n%2==0)    → [2, 4, 6, 8, 10]
+2. Nhân mỗi số với 3
+const  nhanBa = nums.map(n => n*3)   → [3, 6, 9, ..., 30]
+3. Tính tổng tất cả
+const tong = nums.reduce((acc, n) => acc + n, 0);   → 55
+4. Tìm số đầu tiên > 7
+const tim = nums.find(n => n>7)     → 8
+5. Kiểm tra CÓ số > 10 không
+const hasGreaterThan10 = nums.some(n => n > 10);     → false
+6. Kiểm tra TẤT CẢ đều > 0
+const allPositive = nums.every(n => n > 0);    → true
+7. Tạo mảng "Số X là [chẵn/lẻ]"
+const descriptions = nums.map(n => `Số ${n} là ${n % 2 === 0 ? 'chẵn' : 'lẻ'}`);    → ["Số 1 là lẻ", "Số 2 là chẵn", ...]
+8. Đảo ngược mảng (không mutate gốc)
+const reversed = [...nums].reverse();   → [10, 9, ..., 1]
+## Câu A4
+```js
+const product = {
+    name: "iPhone 16",
+    price: 25990000,
+    specs: { ram: 8, storage: 256, color: "Titan" }
+};
+
+// Destructuring
+const { name, price, specs: { ram, color } } = product;
+console.log(name, price, ram, color);   //iPhone 16 25990000 8 Titan
+console.log(specs);                     //error
+
+// Spread
+const updated = { ...product, price: 23990000, sale: true };
+console.log(updated.price);            // 23990000
+console.log(updated.sale);             // true
+console.log(product.price);            // 25990000 -> gốc không đổi
+
+// Spread gotcha
+const copy = { ...product };
+copy.specs.ram = 16;
+console.log(product.specs.ram);        // 16 -> product và copy là 2 object khác nhau. Nhưng product.specs và copy.specs cùng trỏ đến 1 object specs. => product.specs.ram = 16
+```
