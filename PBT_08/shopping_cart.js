@@ -1,5 +1,3 @@
-// shopping_cart.js
-
 function createCart() {
     let items = [];
     let discountPercent = 0;
