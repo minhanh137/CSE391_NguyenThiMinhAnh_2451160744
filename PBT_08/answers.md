@@ -38,3 +38,37 @@ const tinhThueBaoHiem = (luong) => {
 };
 ```
 **Chỉ có Function Declaration cho phép gọi hàm trước khi khai báo. Function Expression và Arrow Function phải được khai báo trước rồi mới sử dụng.**
+## Câu A2
+```js
+// Đoạn 1:
+function counter() {
+    let count = 0;
+    return {
+        increment: () => ++count,
+        decrement: () => --count,
+        getCount: () => count
+    };
+}
+const c = counter();
+console.log(c.increment());  // 1
+console.log(c.increment());  // 2
+console.log(c.increment());  // 3
+console.log(c.decrement());  // 2
+console.log(c.getCount());   // 2
+
+// Đoạn 2:
+for (var i = 0; i < 3; i++) {
+    setTimeout(() => console.log("var:", i), 100);
+}
+for (let j = 0; j < 3; j++) {
+    setTimeout(() => console.log("let:", j), 200);
+}
+// Output sau 200ms: 
+// var: 3 
+// var: 3
+// var: 3
+// let: 0
+// let: 1
+// let: 2
+```
+- `var` dùng chung một biến cho toàn vòng lặp -> `let` mỗi vòng lặp dùng biến riêng
