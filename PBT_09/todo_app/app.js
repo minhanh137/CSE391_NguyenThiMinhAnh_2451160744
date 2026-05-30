@@ -19,9 +19,7 @@ function updateCount() {
 
 function renderTodos() {
     todoList.innerHTML = "";
-
     let filteredTodos = todos;
-
     if (currentFilter === "active") {
         filteredTodos = todos.filter(todo => !todo.completed);
     }
@@ -52,22 +50,18 @@ function renderTodos() {
 
         todoList.appendChild(li);
     });
-
     updateCount();
     saveTodos();
 }
 
 function addTodo() {
     const text = todoInput.value.trim();
-
     if (!text) return;
-
     todos.push({
         id: Date.now(),
         text,
         completed: false
     });
-
     todoInput.value = "";
     renderTodos();
 }
@@ -118,13 +112,10 @@ todoList.addEventListener("dblclick", (e) => {
     input.addEventListener("keydown", (event) => {
         if (event.key === "Enter") {
             const todo = todos.find(todo => todo.id === id);
-
             const newText = input.value.trim();
-
             if (newText) {
                 todo.text = newText;
             }
-
             renderTodos();
         }
     });
@@ -132,13 +123,9 @@ todoList.addEventListener("dblclick", (e) => {
 
 filterBtns.forEach(btn => {
     btn.addEventListener("click", () => {
-
         filterBtns.forEach(b => b.classList.remove("active"));
-
         btn.classList.add("active");
-
         currentFilter = btn.dataset.filter;
-
         renderTodos();
     });
 });
