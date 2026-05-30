@@ -59,6 +59,7 @@ div#app
     - Chọn tất cả `<a>` bên trong `<nav>`: `document.querySelectorAll("nav a");`
 ## Câu A2
 1. So sánh
+```
 | innerHTML | textContent |
 |-----------|-------------|
 | Đọc/ghi nội dung dưới dạng HTML | Đọc/ghi nội dung dưới dạng văn bản thuần |
@@ -66,6 +67,7 @@ div#app
 | Có thể tạo ra các phần tử HTML mới | Chỉ hiển thị đúng chuỗi ký tự |
 | Chậm hơn vì phải phân tích HTML |	Nhanh hơn |
 | Có nguy cơ XSS nếu dữ liệu từ người dùng | An toàn hơn với dữ liệu người dùng |
+```
 2. Ví dụ
 ```js
 const box = document.querySelector("#box");
