@@ -207,3 +207,55 @@ window.addEventListener("load", () => {
     }
 });
 ```
+## Câu C2
+1. Tại sao bind event lên 1000 elements riêng lẻ là BAD PRACTICE?
+    ```js
+    const items = document.querySelectorAll(".item");
+
+    items.forEach(item => {
+        item.addEventListener("click", () => {
+            console.log(item.textContent);
+        });
+    });
+    ```
+* Nếu có 1000 phần tử:
+    - Tạo 1000 event listeners riêng biệt.
+    - Tốn thêm bộ nhớ (memory).
+    - Tốn thời gian khởi tạo.
+    - Khi DOM thay đổi (thêm item mới), phải bind lại listener.
+    - Khó bảo trì code.
+2. Event Delegation giải quyết thế nào?
+    - Gắn 1 listener lên phần tử cha thay vì 1000 listener lên từng phần tử con.
+    ```js
+    const container = document.getElementById("container");
+    container.addEventListener("click", (e) => {
+        if(e.target.classList.contains("item")){
+            console.log(e.target.textContent);
+        }
+    });
+    ```
+    - Event trong DOM có tính chất Event Bubbling: Document -> Body -> Container -> Item. 
+    - Khi click vào Item: Event xảy ra ở Item -> Nổi bọt (bubble) lên Container -> Container bắt được event
+    - Kết quả: 1000 elements -> 1 listener -> Tiết kiệm bộ nhớ và nhanh hơn
+3. Đoạn code gây nhiều reflow
+    - Code ban đầu:
+    ```js
+    for (let i = 0; i < 1000; i++) {
+        const div = document.createElement("div");
+        div.textContent = `Item ${i}`;
+        document.body.appendChild(div);
+    }
+    ```
+    - Mỗi lần `appendChild()` trình duyệt phải: DOM update -> Layout -> Reflow -> Repaint
+    - 1000 lần lặp: appendChild x1000 -> reflow x1000 => Rất tốn chi phí.
+4. Refactor bằng DocumentFragment. Giải thích tại sao nhanh hơn?
+    ```js
+    const fragment = document.createDocumentFragment();
+    for (let i = 0; i < 1000; i++) {
+        const div = document.createElement("div");
+        div.textContent = `Item ${i}`;
+        fragment.appendChild(div);
+    }
+    document.body.appendChild(fragment);
+    ```
+    - Các phần tử được tạo trong DocumentFragment, sau đó chèn vào DOM một lần duy nhất -> giảm số lần reflow/repaint → render nhanh hơn đáng kể.
