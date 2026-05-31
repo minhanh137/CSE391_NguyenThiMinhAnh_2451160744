@@ -88,7 +88,8 @@ async function getData() {
         });
     });
     ``` 
-        - Refactor thành async/await
+
+    - Refactor thành async/await
     ```js
     async function loadData() {
         try {
@@ -103,6 +104,7 @@ async function getData() {
         }
     }
     ```
+
 # PHẦN C
 ## Câu C1 (10đ) — Error Handling Strategy
 1. Network Errors (Mất mạng giữa chừng)
@@ -168,6 +170,7 @@ async function getData() {
         }
     }
     ```
+
 * Sử dụng
     ```js
     try {
@@ -211,6 +214,7 @@ async function getData() {
         }
     }
     ```
+
 * Sử dụng
     ```js
     const response =
@@ -220,7 +224,7 @@ async function getData() {
         );
     ```
 
-### Tóm tắt chiến lược xử lý lỗi
+* **Tóm tắt chiến lược xử lý lỗi**
 | Loại lỗi | Cách xử lý |
 |-----------|-----------|
 | Network Error | Thông báo lỗi, retry |
@@ -232,6 +236,7 @@ async function getData() {
 
 ## Câu C2
 1. So sánh
+
 | Method | Khi nào resolve? | Khi nào reject? | Use case |
 |----------|----------|----------|----------|
 | Promise.all() | Tất cả Promise thành công | Chỉ cần 1 Promise thất bại | Load dữ liệu phụ thuộc nhau |
@@ -252,7 +257,6 @@ async function getData() {
         fetch("/related/1").then(r => r.json())
     ]);
     ```
-
 **Use case:** Trang chi tiết sản phẩm cần đủ Product, Reviews và Related Products.
 
 2. Promise.allSettled()
